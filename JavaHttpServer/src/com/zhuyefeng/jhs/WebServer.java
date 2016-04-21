@@ -25,8 +25,8 @@ public class WebServer {
      * WebServer类的启动方法
      * 可以通过命令行参数指定当前Web服务器所使用的端口号、默认目录等。
      */
-    public static void main(String[] argv) throws Exception {
-    	if(argv != null && "-h".equals(argv[0])) {
+    public static void main(String[] args) throws Exception {
+    	if(args != null && args.length > 0 &&"-h".equals(args[0])) {
     		System.out.println("Options:");
     		System.out.println("\t-p\t指定端口");
     		System.out.println("\t-d\t指定目录");
