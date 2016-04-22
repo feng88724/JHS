@@ -3,8 +3,16 @@ package com.zhuyefeng.jhs;
 import java.io.IOException;
 import java.net.ServerSocket;
 import java.net.Socket;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
 
+/**
+ * Java IO
+ * 只支持BIO模型
+ * @author robot
+ */
 public class WebServer {
+	private ExecutorService threadPool  = Executors.newFixedThreadPool(Runtime.getRuntime().availableProcessors());
     private ServerSocket serverSocket;
 
     public void startServer(int port) {
@@ -14,7 +22,7 @@ public class WebServer {
             while (true) {
                 Socket socket = serverSocket.accept();
                 // 通过多线程的方式来处理客户的请求
-                new Processor(socket).start();
+                threadPool.execute(new Processor(socket));
             }
         } catch (IOException e) {
             e.printStackTrace();
