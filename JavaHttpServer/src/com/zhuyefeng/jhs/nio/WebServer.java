@@ -62,18 +62,6 @@ public class WebServer {
     		System.out.println("\t-d\t指定目录");
     		System.out.println("\t-h\t查看帮助");
     	}
-//		for (int i = 0; i < 5; i++) {
-//			new Thread() {
-//
-//				@Override
-//				public void run() {
-//					super.run();
-//			        new WebServer().startServer(WebConfig.HTTP_PORT);
-//				}
-//			}.start();
-//		}
-		
-		System.out.println(Runtime.getRuntime().availableProcessors());
 		new WebServer().startServer(WebConfig.HTTP_PORT);
 	}
 
